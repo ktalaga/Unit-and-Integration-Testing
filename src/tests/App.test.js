@@ -41,5 +41,18 @@ describe('Calculator', () => {
     expect(runningTotal).toHaveTextContent('3')
   })
 
+  it('should return 15 when 3 is multiplied by 5', () => {
+    const button_3 = container.getByTestId('number3');
+    const button_5 = container.getByTestId('number5')
+    const button_multiply = container.getByTestId('multiply');
+    const equals = container.getByTestId('equals');
+    const runningTotal = container.getByTestId('running-total');
+    fireEvent.click(button_3);
+    fireEvent.click(button_multiply);
+    fireEvent.click(button_5);
+    fireEvent.click(equals);
+    expect(runningTotal).toHaveTextContent('15')
+  })
+
 })
 
