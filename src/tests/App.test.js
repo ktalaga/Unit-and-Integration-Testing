@@ -1,4 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
+import { run } from 'cypress';
 import App from '../App';
 
 describe('Calculator', () => {
@@ -23,8 +24,21 @@ describe('Calculator', () => {
     fireEvent.click(button_1);
     fireEvent.click(button_add);
     fireEvent.click(button_4);
-    fireEvent.click(equals)
+    fireEvent.click(equals);
     expect(runningTotal).toHaveTextContent('5');
+  })
+
+  it('should return 3 when 4 is subtracted from 7', () => {
+    const button_7 = container.getByTestId('number7');
+    const button_4 = container.getByTestId('number4')
+    const button_subtract = container.getByTestId('subtract');
+    const equals = container.getByTestId('equals');
+    const runningTotal = container.getByTestId('running-total');
+    fireEvent.click(button_7);
+    fireEvent.click(button_subtract);
+    fireEvent.click(button_4);
+    fireEvent.click(equals);
+    expect(runningTotal).toHaveTextContent('3')
   })
 
 })
