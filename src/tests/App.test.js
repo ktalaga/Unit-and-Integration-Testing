@@ -69,5 +69,21 @@ describe('Calculator', () => {
     expect(runningTotal).toHaveTextContent('3')
   })
 
+  it('should return 12345 when 1 2 3 4 5 are clicked one after another', () => {
+    const button_2 = container.getByTestId('number2');
+    const button_1 = container.getByTestId('number1');
+    const button_3 = container.getByTestId('number3')
+    const button_4 = container.getByTestId('number4');
+    const button_5 = container.getByTestId('number5')
+
+    const runningTotal = container.getByTestId('running-total');
+    fireEvent.click(button_1);
+    fireEvent.click(button_2);
+    fireEvent.click(button_3);
+    fireEvent.click(button_4);
+    fireEvent.click(button_5);
+    expect(runningTotal).toHaveTextContent('12345')
+  })
+
 })
 
