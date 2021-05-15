@@ -57,4 +57,12 @@ describe("Calculator", () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '998001');
   })
+
+  it('should display "you cannot divide by 0" when dividing by 0', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', 'You cannot divide by 0');
+  })
 })
