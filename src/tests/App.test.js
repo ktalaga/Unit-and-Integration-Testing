@@ -30,7 +30,7 @@ describe('Calculator', () => {
 
   it('should return 3 when 4 is subtracted from 7', () => {
     const button_7 = container.getByTestId('number7');
-    const button_4 = container.getByTestId('number4')
+    const button_4 = container.getByTestId('number4');
     const button_subtract = container.getByTestId('subtract');
     const equals = container.getByTestId('equals');
     const runningTotal = container.getByTestId('running-total');
