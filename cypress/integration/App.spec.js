@@ -45,4 +45,16 @@ describe("Calculator", () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '0.5');
   })
+
+  it('should display very large numbers', () => {
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#operator_multiply').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '998001');
+  })
 })
