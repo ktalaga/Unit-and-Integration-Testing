@@ -5,12 +5,20 @@ describe("Calculator", () => {
 
   it('should have working number buttons', () => {
     cy.get('#number2').click();
-    cy.get('.display').should('contain', '2')
+    cy.get('.display').should('contain', '2');
   })
 
   it('should update the display of the running total by number buttons', () => {
     cy.get('#number2').click();
     cy.get('#number4').click();
-    cy.get('.display').should('contain', '24')
+    cy.get('.display').should('contain', '24');
+  })
+
+  it('update the display with the result of arithmetical operations', () => {
+    cy.get('#number2').click();
+    cy.get('#operator_add').click();
+    cy.get('#number4').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '6');
   })
 })
