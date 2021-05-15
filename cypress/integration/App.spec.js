@@ -22,7 +22,7 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '6');
   })
 
-  it('should display positive positive numbers', () => {
+  it('should display positive numbers', () => {
     cy.get('#number1').click();
     cy.get('#operator_add').click();
     cy.get('#number2').click();
@@ -30,11 +30,19 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '3');
   })
 
-  it('should display positive negative numbers', () => {
+  it('should display negative numbers', () => {
     cy.get('#number1').click();
     cy.get('#operator_subtract').click();
     cy.get('#number2').click();
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '-1');
+  })
+
+  it('should display decimal numbers', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number2').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '0.5');
   })
 })
