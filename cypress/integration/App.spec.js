@@ -14,11 +14,27 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '24');
   })
 
-  it('update the display with the result of arithmetical operations', () => {
+  it('should update the display with the result of arithmetical operations', () => {
     cy.get('#number2').click();
     cy.get('#operator_add').click();
     cy.get('#number4').click();
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '6');
+  })
+
+  it('should display positive positive numbers', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_add').click();
+    cy.get('#number2').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '3');
+  })
+
+  it('should display positive negative numbers', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_subtract').click();
+    cy.get('#number2').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '-1');
   })
 })
